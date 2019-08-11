@@ -3,10 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.2.1",
+    "@material-ui/icons": "^4.2.1",
+    "material-icons": "^0.3.1",
+    "node-polyglot": "^2.3.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-polyglot": "^0.4.1",
     "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1"
   },
   "scripts": {
