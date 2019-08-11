@@ -1,0 +1,1 @@
+export const localLocale = window.localStorage.getItem('locale')
