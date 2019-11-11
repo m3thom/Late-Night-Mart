@@ -6,8 +6,8 @@ class ChangeLanguage extends Component {
 	render() {
 		return (
 			<div>
-				<button onClick={this.context.changeToTHLanguage} disabled={this.context.language === 'th'}>TH</button>
-				<button onClick={this.context.changeToENLanguage} disabled={this.context.language === 'en-US'}>EN</button>
+				<button onClick={this.context.changeToTHLanguage} disabled={this.context.language === 'th'}>Thai</button>
+				<button onClick={this.context.changeToENLanguage} disabled={this.context.language === 'en-US'}>English</button>
 			</div>
 		);
 	};

@@ -4,24 +4,30 @@ import { ENPhrases } from "./en";
 import { I18n } from 'react-polyglot';
 import ChangeLanguageContext from '../../Context/ChangeLanguageContext';
 
+const localLocale = window.localStorage.getItem('locale')
+
 class LocaleProvider extends Component {
 	static contextType = ChangeLanguageContext
 	state = {
-		language: 'en-US',
+		language: localLocale || navigator.language,
 	}
 	changeToTHHandler = () => {
 		window.localStorage.setItem("locale", "th");
 		this.setState({ language: "th" })
 	}
 	changeToENHandler = () => {
-		window.localStorage.setItem("locale", "en-Us");
+		window.localStorage.setItem("locale", "en-US");
 		this.setState({ language: "en-US" })
 	}
 	render() {
-		const localLocale = window.localStorage.getItem('locale')
-		const locale = localLocale || navigator.language || 'en-US'
+		const { language } = this.state
+		const languageVal = {
+			language: this.state.language,
+			changeToENLanguage: this.changeToENHandler,
+			changeToTHLanguage: this.changeToTHHandler,
+		}
 		let messages = ENPhrases
-		switch (locale) {
+		switch (language) {
 			case 'th':
 				messages = THPhrases
 				break;
@@ -33,17 +39,12 @@ class LocaleProvider extends Component {
 		}
 		return (
 			<ChangeLanguageContext.Provider
-				value={{
-					language: this.state.language,
-					changeToENLanguage: this.changeToENHandler,
-					changeToTHLanguage: this.changeToTHHandler,
-				}}
+				value={languageVal}
 			>
 				<I18n
-					locale={locale}
+					locale={language}
 					messages={messages}
 				>
-
 					{this.props.children}
 				</I18n>
 

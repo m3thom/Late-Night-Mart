@@ -6,6 +6,7 @@ const AuthenticationContext = createContext({
 	facebookAuth: () => { },
 	googleAuth: () => { },
 	anonymousAuth: () => { },
+	signOut: () => { }
 });
 
 export default AuthenticationContext;
